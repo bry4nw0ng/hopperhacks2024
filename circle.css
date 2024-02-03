@@ -1,28 +1,17 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-}
-
 .circle {
-    width: 50px; /* Initial size */
-    height: 50px; /* Initial size */
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    position: absolute;
     background-color: blue;
-    border-radius: 50%; /* Makes it a circle */
-    animation: grow 5s infinite; /* Animation applied here */
+    animation: grow 2s forwards;
+    /* Center the transformation */
+    transform: translate(-50%, -50%);
 }
 
 @keyframes grow {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(2); /* Adjust scale to control growth */
-    }
-    100% {
-        transform: scale(1);
+    to {
+        width: 30px;
+        height: 30px;
     }
 }
