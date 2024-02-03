@@ -6,7 +6,7 @@
     background-color: blue;
     animation: grow 2s forwards;
     /* Center the transformation */
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);   
 }
 
 @keyframes grow {
