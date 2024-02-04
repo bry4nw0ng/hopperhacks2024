@@ -28,11 +28,11 @@ function createAndInitializeDivObject(id, color) {
     }
     div.classList.add("circle");
     div.classList.add("animation");
-  
+
     // Get the random positions minus the delta
     currentTop = Math.floor(Math.random() * documentHeight) - delta;
     currentLeft = Math.floor(Math.random() * documentWidth) - delta;
-  
+
     // Keep the positions between -20px and the current positions
     var limitedTop = Math.max(margin * -1, currentTop);
     var limitedLeft = Math.max(margin * -1, currentLeft);
@@ -50,8 +50,8 @@ let i = 0;
 const oneSecond = 1000;
 
 setInterval(() => {
-  i += 1;
-  createAndInitializeDivObject(`circle${i}`)
+    i += 1;
+    createAndInitializeDivObject(`circle${i}`)
 }, oneSecond);
 
 //move circles
@@ -72,9 +72,9 @@ RandomObjectMover.prototype.setSpeed = function(pxPerSec) {
 
 RandomObjectMover.prototype._getContainerDimensions = function() {
     if (this.$container === window) {
-       return { 'height' : this.$container.innerHeight, 'width' : this.$container.innerWidth };
+        return { 'height' : this.$container.innerHeight, 'width' : this.$container.innerWidth };
     } else {
-       return { 'height' : this.$container.clientHeight, 'width' : this.$container.clientWidth };
+        return { 'height' : this.$container.clientHeight, 'width' : this.$container.clientWidth };
     }
 }
 
@@ -109,13 +109,13 @@ RandomObjectMover.prototype._moveOnce = function() {
     let speed = Math.round((delta / this.pixels_per_second) * 100) / 100;
     
     //console.log(this.current_position, next, delta, speed);
-          
+    
     this.$object.style.transition='transform '+speed+'s linear';
     this.$object.style.transform='translate3d('+next.x+'px, '+next.y+'px, 0)';
     
     // Save this new position ready for the next call.
     this.current_position = next;
-  
+
 };
 
 RandomObjectMover.prototype.start = function() {
@@ -144,9 +144,9 @@ RandomObjectMover.prototype.stop = function() {
     if (!this.is_running) {
         return;
     }
-  
+
     this.$object.removeEventListener('transitionend', this.boundEvent);
-  
+
     this.is_running = false;
 }
 
