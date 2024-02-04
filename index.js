@@ -7,6 +7,6 @@ function display2() {
 }
 
 function display3() {
-    window.location.href = "circleBounce.html";
+    window.location.href = "circleChase.html";
 }
 
