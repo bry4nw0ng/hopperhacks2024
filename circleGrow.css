@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+body {
+    background-color: #2e3b84;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Existing styles for blue circles */
+.circle {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    animation: grow 2s forwards;
+    /* Center the transformation */
+    transform: translate(-50%, -50%);   
+}
+
+@keyframes grow {
+    to {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ... existing styles ... */
+
+/* Updated styles for red circle with ripple effect */
+.red-circle {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    position: fixed;
+    background-color: red;
+    opacity: 0; /* Start with 0 opacity */
+    animation: ripple 2s forwards; /* Updated animation name */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0; /* Initial opacity */
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0.5; /* Fade out */
+    }
+}
+
+#score {
+    font-family: 'Caveat', fantasy;
+    font-size: 50px;
+    color: pink;
+}

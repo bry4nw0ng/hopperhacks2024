@@ -21,3 +21,7 @@ button {
     padding: 15px 15px;
     border-radius: 25px;
 }
+button:hover{
+    background-color: #f2a0bf;
+    transition: 400ms;
+}
