@@ -35,7 +35,40 @@ function endGame() {
         gameOverElement.style.opacity = 1; // Make it visible
         gameOverElement.classList.add('flash-red'); // Add class to trigger animation
     }, 250);
+    //Restart button
+    let restartButton = document.getElementById('restartButton');
+    if (!restartButton) {
+        // If it doesn't exist, create it
+        restartButton = document.createElement('button');
+        restartButton.id = 'restartButton';
+        restartButton.innerHTML = '<img src="resources/restart.png" alt="Restart Game">';
+        // Add click event listener for restarting the game
+        restartButton.addEventListener('click', function() {
+            location.reload();
+        });
+
+        // Append the button to the body or a specific div
+        document.body.appendChild(restartButton);
+    }
+    //main button
+    let mainButton = document.getElementById('backToMainButton');
+    if (!mainButton) {
+        createBackToMainButton();
+    }
 }
+
+function createBackToMainButton() {
+    let backToMainButton = document.createElement('button');
+    backToMainButton.id = 'backToMainButton';
+    backToMainButton.style.opacity1 = 1;
+    backToMainButton.textContent = 'Back to Main Page';
+    backToMainButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; // Replace with your main page URL
+    });
+    
+    document.body.appendChild(backToMainButton);
+}
+
 function createAndInitializeDivObject(id, color) {
     let div = document.createElement('div');
     let currentTop = 0;
