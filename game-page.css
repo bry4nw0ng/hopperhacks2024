@@ -1,0 +1,19 @@
+body {
+    background-color: #2e3b84;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+}
+
+.circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#ffc3de;
+}

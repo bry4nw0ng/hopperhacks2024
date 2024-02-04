@@ -9,3 +9,19 @@ body {
     height: auto;
     max-width: 100%;
 }
+
+.button-container {
+    text-align: center;
+}
+
+button {
+    background-color: #ffc3de;
+    font: 'Inter, sans-serif';
+    width: fit-content;
+    padding: 15px 15px;
+    border-radius: 25px;
+}
+button:hover{
+    background-color: #f2a0bf;
+    transition: 400ms;
+}
