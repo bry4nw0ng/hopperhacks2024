@@ -21,7 +21,20 @@ button {
     padding: 10px 30px;
     border-radius: 25px;
 }
+
 button:hover{
     background-color: #f2a0bf;
     transition: 400ms;
+}
+
+.quote-container {
+    background: url('../hopperhacks2024/resources/picture.png');
+    background-size: cover; /* Use "cover" to make the background image fill the container */
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    padding: 10px 20px; /* Increase padding for more spacing */
+    text-align: center; /* Center-align the text */
+    color: white; /* Set text color to make it visible on the image */
+    display: inline-block; /* Make the container inline-block */
+    margin: 0 auto; 
 }

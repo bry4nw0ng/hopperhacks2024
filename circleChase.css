@@ -1,0 +1,29 @@
+/* Reset default margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2e3b84;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#score {
+    font-family: 'Caveat', fantasy;
+    font-size: 50px;
+    color: pink;
+    z-index: 1;
+}
