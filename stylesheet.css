@@ -27,12 +27,18 @@ button:hover{
     transition: 400ms;
 }
 
-p {
-    background: url(../hopperhacks2024/resources/quote\(1\).png);
-    background-size: contain;
+.quote-container {
+    background: url('../hopperhacks2024/resources/quote(1).png');
+    background-size: cover; /* Use "cover" to make the background image fill the container */
     background-repeat: no-repeat;
     border-radius: 25px;
-    padding: 10px 30px;
-    height: 100px;
-    width: 100%;
+    padding: 20px 20px; /* Increase padding for more spacing */
+    text-align: center; /* Center-align the text */
+    color: white; /* Set text color to make it visible on the image */
+    width: 60%:
+}
+
+.quote-text {
+    text-align: justify; /* If you want the text inside to be justified */
+    margin: 0; /* Remove any default margin to ensure a clean layout */
 }
