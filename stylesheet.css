@@ -21,7 +21,18 @@ button {
     padding: 10px 30px;
     border-radius: 25px;
 }
+
 button:hover{
     background-color: #f2a0bf;
     transition: 400ms;
+}
+
+p {
+    background: url(../hopperhacks2024/resources/quote\(1\).png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    padding: 10px 30px;
+    height: 100px;
+    width: 100%;
 }
