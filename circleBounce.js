@@ -16,10 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
         i += 1;                                     // Increment the ID every second
     }, oneSecond); 
 
+    let top = document.getElementById('main'); // main cointainer for balls
     let scoreDisplay = document.createElement('div');
     scoreDisplay.id = 'score';
     scoreDisplay.textContent = 'Score: ' + score; // Initialize score text
-    document.body.appendChild(scoreDisplay);
+    top.appendChild(scoreDisplay);
 
     // Function to update the score
     function updateScore() {
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             // Append the button to the body or a specific div
-            document.body.appendChild(restartButton);
+            top.appendChild(restartButton);
         }
         //main button
         let mainButton = document.getElementById('backToMainButton');
@@ -81,17 +82,17 @@ document.addEventListener("DOMContentLoaded", function() {
         backToMainButton.style.opacity1 = 1;
         backToMainButton.textContent = 'Back to Main Page';
         backToMainButton.addEventListener('click', function() {
-            window.location.href = 'index.html'; // Replace with your main page URL
+            window.location.href = 'index.html'; // main page URL
         });
         
         document.body.appendChild(backToMainButton);
     }
 
+    let mainContainer = document.getElementById('main'); // main cointainer for balls
     function createAndInitializeDivObject(id, color) {
         let div = document.createElement('div');
-        let currentTop = 0;
-        let documentHeight = document.documentElement.clientHeight;
-        let documentWidth = document.documentElement.clientWidth;
+        let containerHeight = mainContainer.clientHeight;
+        let containerWidth = mainContainer.clientWidth;
         // Add mouseover event listener
         div.addEventListener('mouseover', function() {
             console.log('Circle touched'); // Debugging line
@@ -108,17 +109,17 @@ document.addEventListener("DOMContentLoaded", function() {
         div.classList.add("animation");
 
         // Get the random positions minus the delta
-        currentTop = Math.floor(Math.random() * documentHeight) - delta;
-        currentLeft = Math.floor(Math.random() * documentWidth) - delta;
+        currentTop = Math.floor(Math.random() * containerHeight) - delta;
+        currentLeft = Math.floor(Math.random() * containerWidth) - delta;
 
-        // Keep the positions between -20px and the current positions
-        let limitedTop = Math.max(margin * -1, currentTop);
-        let limitedLeft = Math.max(margin * -1, currentLeft);
+        // Keep the positions within the container boundaries
+        let limitedTop = Math.max(margin * -1, Math.min(currentTop, containerHeight - width));
+        let limitedLeft = Math.max(margin * -1, Math.min(currentLeft, containerWidth - width));
 
         div.style.top = limitedTop + "px";
         div.style.left = limitedLeft + "px";
         //Append to document
-        document.body.appendChild(div);
+        mainContainer.appendChild(div);
         //Intialize movement
         let x = new RandomObjectMover(document.querySelector(`.${id}`), window);
         x.start();
