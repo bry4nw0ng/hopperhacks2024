@@ -34,8 +34,8 @@ function createAndInitializeDivObject(id, color) {
     currentLeft = Math.floor(Math.random() * documentWidth) - delta;
   
     // Keep the positions between -20px and the current positions
-    var limitedTop = Math.max(margin * -1, currentTop);
-    var limitedLeft = Math.max(margin * -1, currentLeft);
+    let limitedTop = Math.max(margin * -1, currentTop);
+    let limitedLeft = Math.max(margin * -1, currentLeft);
 
     div.style.top = limitedTop + "px";
     div.style.left = limitedLeft + "px";
@@ -80,21 +80,21 @@ RandomObjectMover.prototype._getContainerDimensions = function() {
 
 RandomObjectMover.prototype._generateNewPosition = function() {
     // Get container dimensions minus div size
-    var containerSize = this._getContainerDimensions();
-    var availableHeight = containerSize.height - this.$object.clientHeight;
-    var availableWidth = containerSize.width - this.$object.clientHeight;
+    let containerSize = this._getContainerDimensions();
+    let availableHeight = containerSize.height - this.$object.clientHeight;
+    let availableWidth = containerSize.width - this.$object.clientHeight;
     
     // Pick a random place in the space
-    var y = Math.floor(Math.random() * availableHeight);
-    var x = Math.floor(Math.random() * availableWidth);
+    let y = Math.floor(Math.random() * availableHeight);
+    let x = Math.floor(Math.random() * availableWidth);
         
     return { x: x, y: y };    
 }
 
 RandomObjectMover.prototype._calcDelta = function(a, b) {
-    var dx   = a.x - b.x;         
-    var dy   = a.y - b.y;         
-    var dist = Math.sqrt(dx*dx + dy*dy); 
+    let dx = a.x - b.x;         
+    let dy = a.y - b.y;         
+    let dist = Math.sqrt(dx*dx + dy*dy); 
     return dist;
 }
 
