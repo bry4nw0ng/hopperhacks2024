@@ -45,18 +45,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     setTimeout(() => {
                         gameOverElement.style.opacity = 1; // Make it visible
                         gameOverElement.classList.add('flash-red'); // Add class to trigger animation
-                    }, 2000);
+                    }, 1000);
                 }
             });
         }
     }, 150);
 
-// Create Game Over element
+    // Create Game Over element
 let gameOverElement = document.createElement('div');
 gameOverElement.textContent = 'GAME OVER';
 gameOverElement.style.display = 'none'; // Hide initially
 gameOverElement.style.fontSize = '3.5em'; // Make it big
 gameOverElement.id = 'gameOver'; // Assign an ID for CSS targeting
 document.body.appendChild(gameOverElement);
+
 
 });
