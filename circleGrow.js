@@ -51,13 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 150);
 
-    // Create Game Over element
+// Create Game Over element
 let gameOverElement = document.createElement('div');
 gameOverElement.textContent = 'GAME OVER';
 gameOverElement.style.display = 'none'; // Hide initially
 gameOverElement.style.fontSize = '3.5em'; // Make it big
 gameOverElement.id = 'gameOver'; // Assign an ID for CSS targeting
 document.body.appendChild(gameOverElement);
-
 
 });

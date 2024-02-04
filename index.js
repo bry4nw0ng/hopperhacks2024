@@ -14,11 +14,50 @@ let width = 40;
 let margin = 20; 
 let delta = width + margin;
 
+// Set the interval ID
+let intervalID; // This will be used to stop the interval later
+let i = 0; // This will be used to create unique IDs for the circles
+const oneSecond = 1000; // 1000ms = 1 second
+
+// Correctly assign the ID returned by setInterval to intervalID
+intervalID = setInterval(() => {
+    createAndInitializeDivObject(`circle${i}`); // Create a new circle
+    i += 1;                                     // Increment the ID every second
+}, oneSecond); 
+//End game function
+
+function endGame() {
+    // Stop creating new balls
+    clearInterval(intervalID);
+
+    // Hide or remove existing balls
+    let balls = document.querySelectorAll('.circle');
+    balls.forEach(ball => {
+        ball.remove(); 
+    });
+    // Display game over message
+    let gameOverElement = document.createElement('div');
+    gameOverElement.textContent = 'GAME OVER';
+    gameOverElement.style.fontSize = '2em'; // Make it big
+    gameOverElement.id = 'gameOver'; // Assign an ID for CSS targeting
+    document.body.appendChild(gameOverElement);
+    document.getElementById('gameOver').style.display = 'block';
+    // Show Game Over after 2 seconds
+    setTimeout(() => {
+        gameOverElement.style.opacity = 1; // Make it visible
+        gameOverElement.classList.add('flash-red'); // Add class to trigger animation
+    }, 250);
+}
 function createAndInitializeDivObject(id, color) {
     let div = document.createElement('div');
     let currentTop = 0;
     let documentHeight = document.documentElement.clientHeight;
     let documentWidth = document.documentElement.clientWidth;
+    // Add mouseover event listener
+    div.addEventListener('mouseover', function() {
+        console.log('Circle touched'); // Debugging line
+        endGame();
+    });
     div.setAttribute('class', id);
     if (color === undefined) {
         let colors = ['#35def2', '#35f242', '#b2f235', '#f2ad35', '#f24735', '#3554f2', '#8535f2', '#eb35f2', '#f2359b', '#f23547'];
@@ -39,20 +78,12 @@ function createAndInitializeDivObject(id, color) {
 
     div.style.top = limitedTop + "px";
     div.style.left = limitedLeft + "px";
+    //Append to document
     document.body.appendChild(div);
-
+    //Intialize movement
     let x = new RandomObjectMover(document.querySelector(`.${id}`), window);
     x.start();
 }
-    
-let i = 0;
-
-const oneSecond = 1000;
-
-setInterval(() => {
-    i += 1;
-    createAndInitializeDivObject(`circle${i}`)
-}, oneSecond);
 
 //move circles
 
@@ -151,7 +182,5 @@ RandomObjectMover.prototype.stop = function() {
 }
 
 let x = new RandomObjectMover(document.querySelector(".circle"), window);
-
-// Start it off
 
 x.start();
