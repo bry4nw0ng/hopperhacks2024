@@ -1,3 +1,3 @@
 function display() {
-    window.location.href = "game.html";
+    window.location.href = "circle.html";
 }
