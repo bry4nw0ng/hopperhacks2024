@@ -20,3 +20,10 @@ html, body {
     background-color: white;
     border-radius: 50%;
 }
+
+#score {
+    font-family: 'Caveat', fantasy;
+    font-size: 50px;
+    color: pink;
+    z-index: 1;
+}
